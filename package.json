@@ -1,0 +1,23 @@
+{
+  "name": "weekend-jquery-salary-calculator",
+  "version": "1.0.0",
+  "description": "[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md",
+  "main": "scripts/client.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Davey-M/weekend-jquery-salary-calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Davey-M/weekend-jquery-salary-calculator/issues"
+  },
+  "homepage": "https://github.com/Davey-M/weekend-jquery-salary-calculator#readme",
+  "devDependencies": {
+    "@types/jquery": "^3.5.13"
+  }
+}
