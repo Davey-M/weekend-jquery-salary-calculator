@@ -28,7 +28,23 @@ class Employee {
     };
 
     delete() {
+        totalMonthlySalary -= this.monthlySalary
+        $(`#${this.idNumber}`).remove();
+    }
 
+    appendInfo() {
+        $('#tableBody').append(`
+            <tr id="${this.idNumber}">
+                <td>${this.firstName}</td>
+                <td>${this.lastName}</td>
+                <td>${this.idNumber}</td>
+                <td>${this.jobTitle}</td>
+                <td>${this.annualSalary}</td>
+                <td>
+                    <button class="deleteButton" remover="${this.idNumber}" >Delete</button>
+                </td>
+            </tr>
+        `)
     }
 }
 
