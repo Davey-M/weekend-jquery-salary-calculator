@@ -2,11 +2,11 @@
 $(main);
 
 function main() {
-    console.log('Jquery is ready');
-    // Get the values from the form on submit
-    $('#employeeForm').on('submit', handleFormSubmit);
+	console.log("Jquery is ready");
+	// Get the values from the form on submit
+	$("#employeeForm").on("submit", handleFormSubmit);
 
-    $('#tableBody').on('click', '.deleteButton', setRowRemover);
+	$("#tableBody").on("click", ".deleteButton", setRowRemover);
 }
 
 let totalMonthlySalary = 0;
@@ -14,24 +14,23 @@ let employeeIDs = [];
 let employees = {};
 
 class Employee {
+	constructor(firstName, lastName, idNumber, jobTitle, annualSalary) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.idNumber = idNumber;
+		this.jobTitle = jobTitle;
+		this.annualSalary = annualSalary;
+		this.monthlySalary = this.annualSalary / 12;
 
-    constructor(firstName, lastName, idNumber, jobTitle, annualSalary) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.idNumber = idNumber;
-        this.jobTitle = jobTitle;
-        this.annualSalary = annualSalary;
-        this.monthlySalary = this.annualSalary / 12;
+		totalMonthlySalary += this.monthlySalary;
 
-        totalMonthlySalary += this.monthlySalary;
+		employeeIDs.push(this.idNumber);
 
-        employeeIDs.push(this.idNumber);
+		employees[this.idNumber] = this;
+	}
 
-        employees[this.idNumber] = this;
-    }
-
-    appendInfo() {
-        $('#tableBody').append(`
+	appendInfo() {
+		$("#tableBody").append(`
             <tr id="${this.idNumber}">
                 <td>${this.firstName}</td>
                 <td>${this.lastName}</td>
@@ -44,49 +43,65 @@ class Employee {
             </tr>
         `);
 
-        updateMonthlyCosts();
-    }
+		updateMonthlyCosts();
+	}
 }
 
 function setRowRemover() {
-    let id = $(this).attr('row');
-    removeRow(id);
+	let id = $(this).attr("row");
+	removeRow(id);
 }
 
 function removeRow(id) {
-    let employee = employees[id]
-    
-    let idIndex = employeeIDs.indexOf(employee.idNumber);
-    employeeIDs.splice(idIndex, 1);
+	let employee = employees[id];
 
-    totalMonthlySalary -= employee.monthlySalary;
+	let idIndex = employeeIDs.indexOf(employee.idNumber);
+	employeeIDs.splice(idIndex, 1);
 
-    $(`#${id}`).remove();
+	totalMonthlySalary -= employee.monthlySalary;
 
-    updateMonthlyCosts();
+	$(`#${id}`).remove();
+
+	updateMonthlyCosts();
 }
 
 function handleFormSubmit(e) {
-    e.preventDefault();
+	e.preventDefault();
 
-    let inputs = e.target;
+	let inputs = e.target;
 
-    let newRow = new Employee(
-        inputs.firstName.value, 
-        inputs.lastName.value, 
-        inputs.idNumber.value, 
-        inputs.jobTitle.value, 
-        inputs.annualSalary.value,
-    );
+	if (
+		inputs.firstName.value === "" ||
+		inputs.lastName.value === "" ||
+		inputs.idNumber.value === "" ||
+		inputs.jobTitle.value === "" ||
+		inputs.annualSalary.value === ""
+	) {
+		alert("No fields can be left blank.");
+		return;
+	}
 
-    newRow.appendInfo();
-    
-    console.log(e);
+	if (employeeIDs.includes(inputs.idNumber.value)) {
+		alert("You can't use the same ID twice.");
+		return;
+	}
+
+	let newRow = new Employee(
+		inputs.firstName.value,
+		inputs.lastName.value,
+		inputs.idNumber.value,
+		inputs.jobTitle.value,
+		inputs.annualSalary.value,
+	);
+
+	newRow.appendInfo();
+
+	console.log(e);
 }
 
 // Check for id already in use
 
 // Update the total monthly salary
 function updateMonthlyCosts() {
-    $(`#totalMonthlySalary`).text(totalMonthlySalary);
+	$(`#totalMonthlySalary`).text(totalMonthlySalary);
 }
