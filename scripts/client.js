@@ -5,6 +5,8 @@ function main() {
     console.log('Jquery is ready');
     // Get the values from the form on submit
     $('#employeeForm').on('submit', handleFormSubmit);
+
+    $('#tableBody').on('click', '.deleteButton', setRowRemover);
 }
 
 let totalMonthlySalary = 0;
@@ -37,7 +39,7 @@ class Employee {
                 <td>${this.jobTitle}</td>
                 <td>${this.annualSalary}</td>
                 <td>
-                    <button class="deleteButton" deleteTarget="${this.idNumber}" >Delete</button>
+                    <button class="deleteButton" row="${this.idNumber}" >Delete</button>
                 </td>
             </tr>
         `);
@@ -46,9 +48,21 @@ class Employee {
     }
 }
 
+function setRowRemover() {
+    let id = $(this).attr('row');
+    removeRow(id);
+}
+
 function removeRow(id) {
-    totalMonthlySalary -= employees[id].monthlySalary;
+    let employee = employees[id]
+    
+    let idIndex = employeeIDs.indexOf(employee.idNumber);
+    employeeIDs.splice(idIndex, 1);
+
+    totalMonthlySalary -= employee.monthlySalary;
+
     $(`#${id}`).remove();
+
     updateMonthlyCosts();
 }
 
