@@ -27,3 +27,19 @@ body {
 .page-header h1 {
 	color: var(--white);
 }
+
+main {
+	padding: 1rem;
+	max-width: max-content;
+	margin: auto;
+}
+
+.submitButton {
+	display: block;
+	margin: 1rem 0rem 0rem auto;
+}
+
+/* .inputContainer {
+	width: max-content;
+	margin: auto;
+} */
