@@ -30,24 +30,31 @@ class Employee {
 	}
 
 	appendInfo() {
-        let tableSlotClass = lightRow ? 'darkRow' : 'lightRow';
 		$("#tableBody").append(`
             <tr id="${this.idNumber}">
-                <td class="${tableSlotClass}" >${this.firstName}</td>
-                <td class="${tableSlotClass}" >${this.lastName}</td>
-                <td class="${tableSlotClass}" >${this.idNumber}</td>
-                <td class="${tableSlotClass}" >${this.jobTitle}</td>
-                <td class="${tableSlotClass}" >$${this.annualSalary}</td>
-                <td class="${tableSlotClass}" >
+                <td>${this.firstName}</td>
+                <td>${this.lastName}</td>
+                <td>${this.idNumber}</td>
+                <td>${this.jobTitle}</td>
+                <td>$${this.annualSalary}</td>
+                <td>
                     <button class="deleteButton" row="${this.idNumber}" >Delete</button>
                 </td>
             </tr>
         `);
 
-        lightRow = !lightRow;
-
 		updateMonthlyCosts();
+        setTableColor();
 	}
+}
+
+function setTableColor() {
+    let tableSlotClass = lightRow ? 'darkRow' : 'lightRow';
+
+    $('#tableBody').children().attr('class', () => {
+        console.log($(this).index())
+        return '';
+    })
 }
 
 function setRowRemover() {
@@ -65,9 +72,8 @@ function removeRow(id) {
 
 	$(`#${id}`).remove();
 
-    lightRow = !lightRow;
-
 	updateMonthlyCosts();
+    setTableColor();
 }
 
 function handleFormSubmit(e) {

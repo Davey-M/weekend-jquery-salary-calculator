@@ -9,8 +9,8 @@ body {
 	--error: red;
 	--white: white;
 	--header: #6d6d6d;
-	--light-row: #cccccc;
-	--dark-row: #aaaaaa;
+	--light-row: #e6e6e6;
+	--dark-row: #c0c0c0;
 	--default: #333333;
 }
 
@@ -53,11 +53,11 @@ main {
 	padding: 0.5rem;
 }
 
-.lightRow {
+.lightRow td {
 	background-color: var(--light-row);
 }
 
-.darkRow {
+.darkRow td {
 	background-color: var(--dark-row);
 }
 
