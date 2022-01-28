@@ -11,6 +11,7 @@ function main() {
 let totalMonthlySalary = 0;
 let employeeIDs = [];
 let employees = {};
+let lightRow = true;
 
 class Employee {
 	constructor(firstName, lastName, idNumber, jobTitle, annualSalary) {
@@ -29,18 +30,21 @@ class Employee {
 	}
 
 	appendInfo() {
+        let tableSlotClass = lightRow ? 'darkRow' : 'lightRow';
 		$("#tableBody").append(`
             <tr id="${this.idNumber}">
-                <td>${this.firstName}</td>
-                <td>${this.lastName}</td>
-                <td>${this.idNumber}</td>
-                <td>${this.jobTitle}</td>
-                <td>$${this.annualSalary}</td>
-                <td>
+                <td class="${tableSlotClass}" >${this.firstName}</td>
+                <td class="${tableSlotClass}" >${this.lastName}</td>
+                <td class="${tableSlotClass}" >${this.idNumber}</td>
+                <td class="${tableSlotClass}" >${this.jobTitle}</td>
+                <td class="${tableSlotClass}" >$${this.annualSalary}</td>
+                <td class="${tableSlotClass}" >
                     <button class="deleteButton" row="${this.idNumber}" >Delete</button>
                 </td>
             </tr>
         `);
+
+        lightRow = !lightRow;
 
 		updateMonthlyCosts();
 	}
@@ -60,6 +64,8 @@ function removeRow(id) {
 	totalMonthlySalary -= employee.monthlySalary;
 
 	$(`#${id}`).remove();
+
+    lightRow = !lightRow;
 
 	updateMonthlyCosts();
 }

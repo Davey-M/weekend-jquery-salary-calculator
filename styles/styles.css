@@ -18,13 +18,13 @@ body {
 	font-size: 1.5rem;
 }
 
-.page-header {
+.pageHeader {
 	background-color: var(--header);
 	padding: 1rem;
 	text-align: center;
 }
 
-.page-header h1 {
+.pageHeader h1 {
 	color: var(--white);
 }
 
@@ -37,6 +37,33 @@ main {
 .submitButton {
 	display: block;
 	margin: 1rem 0rem 0rem auto;
+}
+
+.employeeTable {
+	background-color: var(--default);
+}
+
+.employeeTable th {
+	padding: 0.5rem;
+	background-color: var(--header);
+	color: var(--white);
+}
+
+.employeeTable td {
+	padding: 0.5rem;
+}
+
+.lightRow {
+	background-color: var(--light-row);
+}
+
+.darkRow {
+	background-color: var(--dark-row);
+}
+
+.totalMonthly {
+	width: max-content;
+	margin-left: auto;
 }
 
 /* .inputContainer {
