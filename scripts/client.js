@@ -1,19 +1,18 @@
 "use strict";
 $(main);
+
 function main() {
     console.log('Jquery is ready');
     // Get the values from the form on submit
     $('#employeeForm').on('submit', handleFormSubmit);
 }
+
 let totalMonthlySalary = 0;
 let employeeIDs = [];
+let employees = [];
+
 class Employee {
-    firstName;
-    lastName;
-    idNumber;
-    jobTitle;
-    annualSalary;
-    monthlySalary;
+    
     constructor(firstName, lastName, idNumber, jobTitle, annualSalary) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -24,11 +23,12 @@ class Employee {
         totalMonthlySalary += this.monthlySalary;
         employeeIDs.push(this.idNumber);
     }
-    ;
+
     delete() {
         totalMonthlySalary -= this.monthlySalary;
         $(`#${this.idNumber}`).remove();
     }
+
     appendInfo() {
         $('#tableBody').append(`
             <tr id="${this.idNumber}">
@@ -38,13 +38,25 @@ class Employee {
                 <td>${this.jobTitle}</td>
                 <td>${this.annualSalary}</td>
                 <td>
-                    <button class="deleteButton" remover="${this.idNumber}" >Delete</button>
+                    <button class="deleteButton" onclick="${this.delete}" >Delete</button>
                 </td>
             </tr>
         `);
     }
 }
+
 function handleFormSubmit(e) {
     e.preventDefault();
+
+    let inputs = e.target;
+
+    let newRow = new Employee(
+        inputs.firstName.value, 
+        inputs.lastName.value, 
+        inputs.idNumber.value, 
+        inputs.firstName, 
+        inputs.firstName
+    );
+    
     console.log(e);
 }
