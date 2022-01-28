@@ -73,7 +73,6 @@ function handleFormSubmit(e) {
 	if (
 		inputs.firstName.value === "" ||
 		inputs.lastName.value === "" ||
-		inputs.idNumber.value === "" ||
 		inputs.jobTitle.value === "" ||
 		inputs.annualSalary.value === ""
 	) {
@@ -86,10 +85,12 @@ function handleFormSubmit(e) {
 		return;
 	}
 
+    let id = inputs.idNumber.value === "" ? generateNewId() : inputs.idNumber.value;
+
 	let newRow = new Employee(
 		inputs.firstName.value,
 		inputs.lastName.value,
-		inputs.idNumber.value,
+		id,
 		inputs.jobTitle.value,
 		inputs.annualSalary.value,
 	);
@@ -104,7 +105,16 @@ function handleFormSubmit(e) {
     inputs.annualSalary.value = ""
 }
 
-// Check for id already in use
+function generateNewId() {
+    let id;
+
+    do {
+        id = Math.floor(Math.random() * 8999) + 1000;
+    }
+    while (employeeIDs.includes(id));
+
+    return id;
+}
 
 // Update the total monthly salary
 function updateMonthlyCosts() {
