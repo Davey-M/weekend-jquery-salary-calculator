@@ -113,7 +113,7 @@ function generateNewId() {
     }
     while (employeeIDs.includes(id));
 
-    return id;
+    return id.toString();
 }
 
 // Update the total monthly salary
