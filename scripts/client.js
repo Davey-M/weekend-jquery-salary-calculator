@@ -96,7 +96,12 @@ function handleFormSubmit(e) {
 
 	newRow.appendInfo();
 
-	console.log(e);
+    // Reset form inputs
+    inputs.firstName.value = ""
+    inputs.lastName.value = ""
+    inputs.idNumber.value = ""
+    inputs.jobTitle.value = ""
+    inputs.annualSalary.value = ""
 }
 
 // Check for id already in use
