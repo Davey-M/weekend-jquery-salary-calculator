@@ -118,10 +118,10 @@ function generateNewId() {
 // Update the total monthly salary
 function updateMonthlyCosts() {
     if (totalMonthlySalary > 20_000) {
-        $('#totalMonthlySalaryHolder').css('background-color', 'var(--error)');
+        $('#totalMonthlySalaryHolder').css('color', 'var(--error)');
     }
     else {
-        $('#totalMonthlySalaryHolder').css('background-color', 'transparent')
+        $('#totalMonthlySalaryHolder').css('color', 'var(--default)')
     }
 	$(`#totalMonthlySalary`).text(totalMonthlySalary);
 }

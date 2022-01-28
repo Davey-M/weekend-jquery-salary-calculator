@@ -15,58 +15,65 @@
 </head>
 <body>
 
-    <header>
+    <header class="page-header" >
         <h1>Salary Calculator</h1>
     </header>
 
-    <div class="inputContainer">
+    <main>
 
-        <form id="employeeForm" >
-
-            <input type="text" id="firstName" placeholder="First Name">
-            <input type="text" id="lastName" placeholder="Last Name">
-            <input type="text" id="idNumber" placeholder="ID Number">
-            <input type="text" id="jobTitle" placeholder="Job Title">
-            <input type="number" id="annualSalary" placeholder="Annual Salary">
+        <div class="inputContainer">
+            <h1 class="smallerHeader">Add Employee</h1>
     
-            <input type="submit" value="Submit">
+            <form id="employeeForm" >
+    
+                <input type="text" id="firstName" placeholder="First Name">
+                <input type="text" id="lastName" placeholder="Last Name">
+                <input type="text" id="idNumber" placeholder="ID (Optional)">
+                <input type="text" id="jobTitle" placeholder="Job Title">
+                <input type="number" id="annualSalary" placeholder="Annual Salary">
+        
+                <input type="submit" value="Submit">
+    
+            </form>
+    
+        </div>
+    
+        <!-- _employee first name, last name, ID number, job title, annual salary_ -->
+    
+        <div class="tableContainer">
+            <h1 class="smallerHeader">Employees</h1>
+    
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>ID Number</th>
+                        <th>Job Title</th>
+                        <th>Annual Salary</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- <tr>
+                        <td>David</td>
+                        <td>Meuer</td>
+                        <td>0001</td>
+                        <td>Slacker</td>
+                        <td>$100,000,000.00</td>
+                        <td>
+                            <button class="deleteButton">Delete</button>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    
+        <div id="totalMonthlySalaryHolder">
+            <h1 class="smallerHeader" >Total Monthly: $<span id="totalMonthlySalary">0</span></h1>
+        </div>
 
-        </form>
-
-    </div>
-
-    <!-- _employee first name, last name, ID number, job title, annual salary_ -->
-
-    <div class="tableContainer">
-        <table>
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>ID Number</th>
-                    <th>Job Title</th>
-                    <th>Annual Salary</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody id="tableBody">
-                <!-- <tr>
-                    <td>David</td>
-                    <td>Meuer</td>
-                    <td>0001</td>
-                    <td>Slacker</td>
-                    <td>$100,000,000.00</td>
-                    <td>
-                        <button class="deleteButton">Delete</button>
-                    </td>
-                </tr> -->
-            </tbody>
-        </table>
-    </div>
-
-    <div id="totalMonthlySalaryHolder">
-        <h1>Total Monthly: $<span id="totalMonthlySalary">0</span></h1>
-    </div>
+    </main>
     
 </body>
 </html>

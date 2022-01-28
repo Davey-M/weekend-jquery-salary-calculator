@@ -1,3 +1,29 @@
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	margin: 0;
+	color: var(--default);
+}
+
 :root {
 	--error: red;
+	--white: white;
+	--header: #6d6d6d;
+	--light-row: #cccccc;
+	--dark-row: #aaaaaa;
+	--default: #333333;
+}
+
+.smallerHeader {
+	font-size: 1.5rem;
+}
+
+.page-header {
+	background-color: var(--header);
+	padding: 1rem;
+	text-align: center;
+}
+
+.page-header h1 {
+	color: var(--white);
 }
