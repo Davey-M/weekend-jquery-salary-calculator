@@ -2,7 +2,6 @@
 $(main);
 
 function main() {
-	console.log("Jquery is ready");
 	// Get the values from the form on submit
 	$("#employeeForm").on("submit", handleFormSubmit);
 
@@ -36,7 +35,7 @@ class Employee {
                 <td>${this.lastName}</td>
                 <td>${this.idNumber}</td>
                 <td>${this.jobTitle}</td>
-                <td>${this.annualSalary}</td>
+                <td>$${this.annualSalary}</td>
                 <td>
                     <button class="deleteButton" row="${this.idNumber}" >Delete</button>
                 </td>
