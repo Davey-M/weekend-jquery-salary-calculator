@@ -92,7 +92,7 @@ function handleFormSubmit(e) {
 		inputs.lastName.value,
 		id,
 		inputs.jobTitle.value,
-		inputs.annualSalary.value,
+		Number(inputs.annualSalary.value),
 	);
 
 	newRow.appendInfo();
@@ -118,5 +118,11 @@ function generateNewId() {
 
 // Update the total monthly salary
 function updateMonthlyCosts() {
+    if (totalMonthlySalary > 20_000) {
+        $('#totalMonthlySalaryHolder').css('background-color', 'var(--error)');
+    }
+    else {
+        $('#totalMonthlySalaryHolder').css('background-color', 'transparent')
+    }
 	$(`#totalMonthlySalary`).text(totalMonthlySalary);
 }
