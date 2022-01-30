@@ -36,7 +36,7 @@ class Employee {
                 <td>${this.lastName}</td>
                 <td>${this.idNumber}</td>
                 <td>${this.jobTitle}</td>
-                <td>$${this.annualSalary}</td>
+                <td>$${this.annualSalary.toFixed(2)}</td>
                 <td>
                     <button class="deleteButton" row="${this.idNumber}" >Delete</button>
                 </td>
@@ -124,5 +124,5 @@ function updateMonthlyCosts() {
     else {
         $('#totalMonthlySalaryHolder').css('color', 'var(--default)')
     }
-	$(`#totalMonthlySalary`).text(totalMonthlySalary);
+	$(`#totalMonthlySalary`).text(totalMonthlySalary.toFixed(2));
 }

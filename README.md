@@ -12,14 +12,7 @@ To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.he
 
 ## Screen Shot
 
-Include one or two screen shots of your project here (optional). Remove if unused.
-
-### Prerequisites
-
-Link to software that is required to install the app (e.g. node).
-
-- [Node.js](https://nodejs.org/en/)
-- List other prerequisites here
+![App HomePage](screenshots/app_screenshot.png)
 
 ## Installation
 
@@ -35,14 +28,11 @@ If your application has secret keys (for example --  Twilio), make sure you tell
 6. The `npm run client` command will open up a new browser tab for you!
 
 ## Usage
-How does someone use this application? Tell a user story here.
+This application could be useful for any of the following:
 
-1. xxx
-2. xxx
-3. xxx
-4. xxx
-5. xxx
-6. xxx
+1. Calculating monthly budgets.
+2. Keeping track of employee ID's.
+3. Tracking employee's annual salaries.
 
 
 ## Built With
