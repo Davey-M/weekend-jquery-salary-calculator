@@ -44,17 +44,7 @@ class Employee {
         `);
 
 		updateMonthlyCosts();
-        setTableColor();
 	}
-}
-
-function setTableColor() {
-    let tableSlotClass = lightRow ? 'darkRow' : 'lightRow';
-
-    $('#tableBody').children().attr('class', () => {
-        console.log($(this).index())
-        return '';
-    })
 }
 
 function setRowRemover() {
@@ -73,7 +63,6 @@ function removeRow(id) {
 	$(`#${id}`).remove();
 
 	updateMonthlyCosts();
-    setTableColor();
 }
 
 function handleFormSubmit(e) {

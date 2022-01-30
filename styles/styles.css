@@ -53,6 +53,14 @@ main {
 	padding: 0.5rem;
 }
 
+#tableBody td {
+	background-color: var(--light-row);
+}
+
+#tableBody tr:nth-child(2n + 1) td {
+	background-color: var(--dark-row);
+}
+
 .lightRow td {
 	background-color: var(--light-row);
 }
