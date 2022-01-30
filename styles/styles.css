@@ -61,14 +61,6 @@ main {
 	background-color: var(--dark-row);
 }
 
-.lightRow td {
-	background-color: var(--light-row);
-}
-
-.darkRow td {
-	background-color: var(--dark-row);
-}
-
 .totalMonthly {
 	width: max-content;
 	margin-left: auto;
