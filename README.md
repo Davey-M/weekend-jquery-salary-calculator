@@ -2,7 +2,7 @@
 
 ## Description
 
-This app is a salary calculator created for the full stack course at [Prime Digital Academy](www.primeacademy.io). The assignment was to create a form that took in 5 parameters. When submit a table row is created to hold and display these parameters. 
+This app is a salary calculator created for the full stack course at [Prime Digital Academy](www.primeacademy.io). The assignment was to create a form that took in 5 parameters. When submitted it filled out a table with employee Name, Id, Job Title, and Yearly Salary. It also calculates the monthly total salary for all the employees.
 
 ## Screen Shot
 
@@ -18,7 +18,6 @@ This application could be useful for any of the following:
 1. Calculating monthly budgets.
 2. Keeping track of employee ID's.
 3. Tracking employee's annual salaries.
-
 
 ## Built With
 
